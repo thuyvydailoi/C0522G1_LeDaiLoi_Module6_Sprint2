@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80263a80-75f9-43cb-8c98-c3bd4c6aaeaf" name="Changes" comment="" />
+    <list default="true" id="80263a80-75f9-43cb-8c98-c3bd4c6aaeaf" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,7 +37,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "F:/codegym/C0522G1_LeDaiLoi_Module6_Sprint2/prototype_login",
+    "last_opened_file_path": "F:/codegym/C0522G1_LeDaiLoi_Module6_Sprint2/profile-card-hover-effect",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -51,7 +53,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1669797734205</updated>
-      <workItem from="1669797735381" duration="1816000" />
+      <workItem from="1669797735381" duration="2556000" />
+      <workItem from="1669818713108" duration="118000" />
+      <workItem from="1669974333958" duration="828000" />
     </task>
     <servers />
   </component>
