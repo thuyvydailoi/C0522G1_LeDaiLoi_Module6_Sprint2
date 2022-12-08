@@ -1,4 +1,8 @@
 package com.codegym.repository.alcohol;
 
-public interface IAlcoholSizeRepository {
+import com.codegym.model.alcohol.AlcoholSize;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface IAlcoholSizeRepository extends JpaRepository<AlcoholSize, Integer> {
+
 }

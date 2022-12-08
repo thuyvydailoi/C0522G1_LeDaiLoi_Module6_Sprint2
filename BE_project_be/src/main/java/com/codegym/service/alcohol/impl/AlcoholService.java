@@ -13,6 +13,7 @@ public class AlcoholService implements IAlcoholService {
     private IAlcoholRepository iAlcoholRepository;
     @Override
     public Page<IAlcoholDto> findAllAlcoholAndSearch(Pageable pageable, String nameSearch) {
-        return iAlcoholRepository.findAllAlcoholAndSearch(pageable, nameSearch);
+        return null;
+//                iAlcoholRepository.findAllAlcoholAndSearch(pageable, nameSearch);
     }
 }
