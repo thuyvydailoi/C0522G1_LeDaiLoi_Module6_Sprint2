@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   alcoholList: IAlcoholDto[];
   moreAlcoholList: IAlcoholDto[];
   AlcoholTypeList: AlcoholType[];
+  numberPage = 0;
 
   constructor(private alcoholService: AlcoholService) {
   }
@@ -54,5 +55,9 @@ export class HomeComponent implements OnInit {
     this.getAllAlcoholList(this.numberRecord);
   }
 
-
+  search() {
+    console.log(this.nameSearch);
+    this.numberPage = 0;
+    this.getAllAlcoholList(this.numberPage);
+  }
 }

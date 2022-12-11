@@ -24,4 +24,8 @@ export class AlcoholService {
   getAllAlcoholType(): Observable<AlcoholType[]> {
     return this.http.get<IAlcoholDto[]>(this.API_ALCOHOL + 'alcohol/type-list');
   }
+
+  findById(id: number): Observable<IAlcoholDto> {
+    return this.http.get<IAlcoholDto>(this.API_ALCOHOL + 'alcohol/find-by-id/' + id);
+  }
 }

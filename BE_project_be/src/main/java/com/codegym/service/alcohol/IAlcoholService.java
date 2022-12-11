@@ -4,7 +4,10 @@ import com.codegym.dto.IAlcoholDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-public interface IAlcoholService {
-    Page<IAlcoholDto> findAllAlcoholAndSearch(Pageable pageable, String nameSearch);
+import java.util.Optional;
 
+public interface IAlcoholService {
+    Page<IAlcoholDto> findAllAlcoholAndSearch( String nameSearch, Pageable pageable);
+
+    Optional<IAlcoholDto> findByIdAlcohol(Integer id);
 }
