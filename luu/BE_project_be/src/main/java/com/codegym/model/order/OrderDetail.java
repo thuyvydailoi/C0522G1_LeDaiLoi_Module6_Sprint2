@@ -12,23 +12,18 @@ public class OrderDetail {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String datePayment;
-    private boolean isDelete;
-    private String quantity;
-
-    @ManyToOne
-    @JoinColumn(name = "customer_id", referencedColumnName = "id")
-    private Customer customer;
+    private boolean isDelete = false;
+    private Integer quantity;
 
     @ManyToOne
     @JoinColumn(name = "alcohol_id", referencedColumnName = "id")
     private Alcohol alcohol;
 
-    public OrderDetail(Integer id, String datePayment, boolean isDelete, String quantity, Customer customer, Alcohol alcohol) {
+    public OrderDetail(Integer id, String datePayment, boolean isDelete, Integer quantity, Alcohol alcohol) {
         this.id = id;
         this.datePayment = datePayment;
         this.isDelete = isDelete;
         this.quantity = quantity;
-        this.customer = customer;
         this.alcohol = alcohol;
     }
 
@@ -59,20 +54,12 @@ public class OrderDetail {
         isDelete = delete;
     }
 
-    public String getQuantity() {
+    public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(String quantity) {
+    public void setQuantity(Integer quantity) {
         this.quantity = quantity;
-    }
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
     }
 
     public Alcohol getAlcohol() {

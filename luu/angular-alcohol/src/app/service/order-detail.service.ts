@@ -14,7 +14,8 @@ export class OrderDetailService {
   }
 
   getCartList(): Observable<OrderDetailDto[]> {
-    return this.http.get<OrderDetailDto[]>(this.URL_API);
+    console.log(this.URL_API + '/list');
+    return this.http.get<OrderDetailDto[]>(this.URL_API + '/list');
   }
 
   getTotalBill(): Observable<OrderDetailDto> {
@@ -23,9 +24,7 @@ export class OrderDetailService {
 
   updateCart(iAlcoholDto: IAlcoholDto): Observable<void> {
     return this.http.post<void>(
-      this.URL_API + '/cart-update' + '?id=' + iAlcoholDto.id,
-      iAlcoholDto
-    );
+      this.URL_API + '/cart-update' + '?id=' + iAlcoholDto.id, iAlcoholDto);
   }
 
   updateQuantity(orderDetailDto: OrderDetailDto): Observable<void> {

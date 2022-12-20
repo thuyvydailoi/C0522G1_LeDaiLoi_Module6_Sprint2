@@ -40,6 +40,14 @@
               <span class="price">{{item.price | currency: 'VND' }}</span>
             </div>
           </a>
+
+          <div class="row">
+            <div class="col-sm-12 text-center">
+              <p class="addtocart"><a routerLink="cart" class="btn btn-primary btn-addtocart" (click)="addToCart(item)"><i
+                class="icon-shopping-cart"></i> Thêm vào giỏ hàng</a></p>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>

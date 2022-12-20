@@ -4,7 +4,8 @@ import {Title} from '@angular/platform-browser';
 import {IAlcoholDto} from '../../dto/i-alcohol-dto';
 import {AlcoholService} from '../../service/alcohol.service';
 import {TokenStorageService} from '../../service/token-storage.service';
-import {any} from 'codelyzer/util/function';
+import {OrderDetailService} from '../../service/order-detail.service';
+import {OrderDetailDto} from '../../dto/order-detail-dto';
 
 @Component({
   selector: 'app-index',
@@ -24,7 +25,8 @@ export class IndexComponent implements OnInit {
 
   constructor(private alcoholService: AlcoholService,
               private tokenService: TokenStorageService,
-              private title: Title) {
+              private title: Title,
+              private orderDetailService: OrderDetailService) {
     this.title.setTitle('Trang chủ');
   }
 
@@ -32,6 +34,7 @@ export class IndexComponent implements OnInit {
     this.getAllAlcoholList();
     // tslint:disable-next-line:no-unused-expression
     this.showUsername;
+
   }
 
   showUsername() {
@@ -58,6 +61,12 @@ export class IndexComponent implements OnInit {
       } else {
         this.content = false;
       }
+    });
+  }
+
+  addToCart(item: IAlcoholDto) {
+    this.orderDetailService.updateCart(item).subscribe(() => {
+      // this.messageService.add({severity: 'success', summary: 'Success', detail: 'Add successfully'});
     });
   }
 

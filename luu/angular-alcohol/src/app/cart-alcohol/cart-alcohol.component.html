@@ -1,226 +1,72 @@
-<div class="colorlib-product container">
-<!--  <div class="container">-->
-<!--    <div class="row row-pb-lg">-->
-<!--      <div class="col-md-10 offset-md-1">-->
-<!--        <div class="process-wrap">-->
-<!--          <div class="process text-center active">-->
-<!--            <p><span>01</span></p>-->
-<!--            <h3>Giỏ Hàng</h3>-->
-<!--          </div>-->
-<!--          <div class="process text-center">-->
-<!--            <p><span>02</span></p>-->
-<!--            <h3>Thanh Toán</h3>-->
-<!--          </div>-->
-<!--          <div class="process text-center">-->
-<!--            <p><span>03</span></p>-->
-<!--            <h3>Hoàn Tất Đơn Hàng</h3>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-    <div class="row row-pb-lg">
-      <div class="col-md-12">
-        <div class="product-name d-flex">
-          <div class="one-forth text-left px-4">
-            <span>Tên sản phẩm</span>
+<!--your cart-->
+<div class="row cart-product-body">
+  <div class="cart-product-pay">
+    <h2>GIỎ HÀNG</h2>
+    <hr style="color: #a50318">
+    <table class="table text-center">
+      <thead class="text-center">
+      <tr>
+        <th></th>
+        <th class="text-left">Thông tin chi tiết sản phẩm</th>
+        <th>Đơn giá</th>
+        <th>Số lượng</th>
+        <th>Tổng giá</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of cart">
+        <td><img src="{{item.image}}"
+                 style="width:70%;margin-left:20%;height: 80px;width: 100px"></td>
+        <td class="text-left">
+          <h4>{{item.name}}</h4>
+<!--          <a style="color: #a50318" (click)="removeCart(item.id)">Xóa</a>-->
+        </td>
+        <td>{{item.price | number}}₫</td>
+        <td>
+          <div class="buttons_added">
+            <input class="minus is-form" type="button" value="-" (click)="updateQuantity(item)">
+            <input aria-label="quantity" class="input-qty" max="999" min="1" name="" type="number" [value]="item.quantity">
+            <input class="plus is-form" type="button" value="+" (click)="updateQuantity(item)">
           </div>
-          <div class="one-eight text-center">
-            <span>Giá</span>
-          </div>
-          <div class="one-eight text-center">
-            <span>Số lượng</span>
-          </div>
-          <div class="one-eight text-center">
-            <span>Tổng giá</span>
-          </div>
-          <div class="one-eight text-center px-4">
-            <span>Huỷ</span>
-          </div>
-        </div>
-        <div class="product-cart d-flex">
-          <div class="one-forth">
-            <div class="product-img"
-                 style="background-image: url(https://winehamper.vn/wp-content/uploads/2019/03/tequila.jpg);">
-            </div>
-            <div class="display-tc">
-              <h3>Tequila</h3>
-            </div>
-          </div>
-          <div class="one-eight text-center">
-            <div class="display-tc">
-              <span class="price">100.000 đ</span>
-            </div>
-          </div>
-          <div class="one-eight text-center">
-            <div class="display-tc">
-              <input type="text" name="quantity"
-                     class="form-control input-number text-center" value="1" min="1" max="100">
-            </div>
-          </div>
-          <div class="one-eight text-center">
-            <div class="display-tc">
-              <span class="price">800.000 đ</span>
-            </div>
-          </div>
-          <div class="one-eight text-center">
-            <div class="display-tc">
-              <a href="#" class="closed"></a>
-            </div>
-          </div>
-        </div>
-        <div class="product-cart d-flex">
-          <div class="one-forth">
-            <div class="product-img"
-                 style="background-image: url(data:image/jpeg;base64,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);">
-            </div>
-            <div class="display-tc">
-              <h3>Gin Gordon's</h3>
-            </div>
-          </div>
-          <div class="one-eight text-center">
-            <div class="display-tc">
-              <span class="price">320.000 đ</span>
-            </div>
-          </div>
-          <div class="one-eight text-center">
-            <div class="display-tc">
-              <form action="#">
-                <input type="text" name="quantity" class="form-control input-number text-center"
-                       value="1" min="1" max="100">
-              </form>
-            </div>
-          </div>
-          <div class="one-eight text-center">
-            <div class="display-tc">
-              <span class="price">900.000 đ</span>
-            </div>
-          </div>
-          <div class="one-eight text-center">
-            <div class="display-tc">
-              <a href="#" class="closed"></a>
-            </div>
-          </div>
-        </div>
-        <div class="product-cart d-flex">
-          <div class="one-forth">
-            <div class="product-img"
-                 style="background-image: url(https://www.phanphoiruoungoai.com/images/malibu_dua.jpg);">
-            </div>
-            <div class="display-tc">
-              <h3>Malibu</h3>
-            </div>
-          </div>
-          <div class="one-eight text-center">
-            <div class="display-tc">
-              <span class="price">600.000 đ</span>
-            </div>
-          </div>
-          <div class="one-eight text-center">
-            <div class="display-tc">
-              <input type="text" id="quantity" name="quantity"
-                     class="form-control input-number text-center" value="1" min="1" max="100">
-            </div>
-          </div>
-          <div class="one-eight text-center">
-            <div class="display-tc">
-              <span class="price">900.000 đ</span>
-            </div>
-          </div>
-          <div class="one-eight text-center">
-            <div class="display-tc">
-              <a href="#" class="closed"></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-<!--    <div class="row row-pb-lg">-->
-<!--      <div class="col-md-12">-->
-<!--        <div class="total-wrap">-->
-<!--          <div class="row">-->
-<!--            <div class="col-sm-8">-->
-<!--              <form action="#">-->
-<!--                <div class="row form-group">-->
-<!--                  <div class="col-sm-9">-->
-<!--                    <input type="text" name="quantity" class="form-control input-number"-->
-<!--                           placeholder="Your Coupon Number...">-->
-<!--                  </div>-->
-<!--                  <div class="col-sm-3">-->
-<!--                    <input type="submit" value="Sử dụng voucher" class="btn btn-primary">-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </form>-->
-<!--            </div>-->
-<!--            <div class="col-sm-4 text-center">-->
-<!--              <div class="total">-->
-<!--                <div class="sub">-->
-<!--                  <p><span>Tổng :</span> <span>200.000 đ</span></p>-->
-<!--                  <p><span>Phí giao hàng:</span> <span>0.00 đ</span></p>-->
-<!--                  <p><span>Giảm giá:</span> <span>45.000 đ</span></p>-->
-<!--                </div>-->
-<!--                <div class="grand-total">-->
-<!--                  <p><span><strong>Thành tiền:</strong></span> <span>155.000 đ</span></p>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
+          <!--          <p-inputNumber [(ngModel)]="item.quantity" [showButtons]="true" buttonLayout="horizontal"-->
+          <!--                         inputId="horizontal" spinnerMode="horizontal" [step]="1"-->
+          <!--                         decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success"-->
+          <!--                         incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" [min]="1"-->
+          <!--                         (click)="updateQty(item)">-->
+          <!--          </p-inputNumber>-->
+        </td>
+        <td >{{item.sumPerOne |number}}₫</td>
+      </tr>
 
-<!--    <div class="row">-->
-<!--      <div class="col-sm-8 offset-sm-2 text-center colorlib-heading colorlib-heading-sm">-->
-<!--        <h2>Sản phẩm liên quan</h2>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    <div class="row">-->
-<!--      <div class="col-md-3 col-lg-3 mb-4 text-center">-->
-<!--        <div class="product-entry border">-->
-<!--          <a href="#" class="prod-img">-->
-<!--            <img src="https://winehamper.vn/wp-content/uploads/2019/03/tequila.jpg" class="img-fluid"-->
-<!--                 alt="Free html5 bootstrap 4 template">-->
-<!--          </a>-->
-<!--          <div class="desc">-->
-<!--            <h2><a href="#">Tequila Gold</a></h2>-->
-<!--            <span class="price">400.000 đ</span>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="col-md-3 col-lg-3 mb-4 text-center">-->
-<!--        <div class="product-entry border">-->
-<!--          <a href="#" class="prod-img">-->
-<!--            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6P8Y3wwpvlmqHf-roz9N8d-10urt4RzAugw&usqp=CAU"-->
-<!--                 class="img-fluid" alt="Free html5 bootstrap 4 template">-->
-<!--          </a>-->
-<!--          <div class="desc">-->
-<!--            <h2><a href="#">Courvoisier VS Cognac</a></h2>-->
-<!--            <span class="price">900.000 đ</span>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="col-md-3 col-lg-3 mb-4 text-center">-->
-<!--        <div class="product-entry border">-->
-<!--          <a href="#" class="prod-img">-->
-<!--            <img src="https://www.phanphoiruoungoai.net/wp-content/uploads/2020/11/ruou-song-cai-vietnam-floral-gin-247x300.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">-->
-<!--          </a>-->
-<!--          <div class="desc">-->
-<!--            <h2><a href="#">Gin Sông Cái</a></h2>-->
-<!--            <span class="price">800.000 đ</span>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="col-md-3 col-lg-3 mb-4 text-center">-->
-<!--        <div class="product-entry border">-->
-<!--          <a href="#" class="prod-img">-->
-<!--            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv6EgjbYU0ecl7tAWH6-XKwExkZm8YmInWJccw7Ilb7HcOpqcttSfOewyGrZg34OivHG8&usqp=CAU"-->
-<!--                 class="img-fluid" alt="Free html5 bootstrap 4 template">-->
-<!--          </a>-->
-<!--          <div class="desc">-->
-<!--            <h2><a href="#">Cognac Hennessy</a></h2>-->
-<!--            <span class="price">1.500.000 đ</span>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
+      </tbody>
+    </table>
+
+  </div>
+</div>
+<div class="row bill-pay-body">
+  <div class="col-lg-6">
+    <div>
+      <div class="form-floating">
+        <span><b>Ghi chú</b></span>
+        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+        <label for="floatingTextarea"></label>
+      </div>
+      <div class="mt-2">
+        <span><b>Giờ giao hàng:</b></span>
+        <span>Tùy thuộc địa chỉ giao hàng,THOR-BEER giao hàng
+          : *Khu Vực HCM, Hà Nội : trong vòng 24h. *Khu vực Đà Nẵng : trong vòng 2h-4h.
+        Quý khách tham khảo khu vực giao hàng tại đây<a href="#" style="color: #a50318">(Chính sách bán hàng)</a></span>
+      </div>
+
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="total-pay">
+      <h5 ><b>Tổng tiền:</b> {{totalBill | number}}₫</h5>
+    </div>
+    <div class="view-detail " style="float: right"  >
+      <button class="btn btn-danger">Cập nhật</button>
+      <a class="btn btn-danger " id="myPayPal" (click)="payment()">Thanh toán</a>
+    </div>
+  </div>
 </div>

@@ -67,7 +67,7 @@
               </ul>
             </div>
           </div>
-          <div class="input-group mb-4">
+          <div class="input-group mb-4" *ngFor="let item of alcoholList">
                      	<span class="input-group-btn">
                         	<button type="button" class="quantity-left-minus btn" data-type="minus" data-field="">
                            <i class="icon-minus2"></i>
@@ -81,12 +81,12 @@
                          </button>
                      	</span>
           </div>
-          <div class="row">
-            <div class="col-sm-12 text-center">
-              <p class="addtocart"><a routerLink="/cart" class="btn btn-primary btn-addtocart"><i
-                class="icon-shopping-cart"></i> Thêm vào giỏ hàng</a></p>
-            </div>
-          </div>
+<!--          <div class="row">-->
+<!--            <div class="col-sm-12 text-center">-->
+<!--              <p class="addtocart"><a routerLink="/cart" class="btn btn-primary btn-addtocart" (click)="addToCart(item)"><i-->
+<!--                class="icon-shopping-cart"></i> Thêm vào giỏ hàng</a></p>-->
+<!--            </div>-->
+<!--          </div>-->
         </div>
       </div>
     </div>

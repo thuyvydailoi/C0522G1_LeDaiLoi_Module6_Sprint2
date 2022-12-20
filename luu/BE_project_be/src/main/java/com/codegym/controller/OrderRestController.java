@@ -12,12 +12,12 @@ import java.util.List;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/api/cart/")
+@RequestMapping("/api/cart")
 public class OrderRestController {
     @Autowired
     private IOrderDetailService iOrderDetailService;
 
-    @GetMapping("list")
+    @GetMapping("/list")
     public ResponseEntity<List<IOrderDetailDto>> getCartList() {
         List<IOrderDetailDto> cartDtos = iOrderDetailService.getCartList();
         if (cartDtos.isEmpty()) {
@@ -30,6 +30,7 @@ public class OrderRestController {
     public ResponseEntity<ITotalDto> getTotalBill() {
         ITotalDto totalBill = iOrderDetailService.getTotalBill();
         if (totalBill == null) {
+
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         return new ResponseEntity<>(totalBill, HttpStatus.OK);
