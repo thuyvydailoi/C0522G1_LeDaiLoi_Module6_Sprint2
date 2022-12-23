@@ -1,0 +1,10 @@
+.body {
+  overflow-x: hidden;
+}
+.shopping-cart {
+  display: inline-block;
+
+  width: 24px;
+  height: 24px;
+  margin: 0 10px 0 0;
+}
