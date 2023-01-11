@@ -70,7 +70,6 @@ export class LoginComponent implements OnInit {
       data => {
         this.tokenStorageService.saveUserLocal(data);
         this.userGroup.reset();
-
         // console.log('ffff');
         // console.log(data);
         // this.username = this.tokenStorageService.getUser().username;
