@@ -5,7 +5,6 @@ import {IAlcoholDto} from '../../dto/i-alcohol-dto';
 import {AlcoholService} from '../../service/alcohol.service';
 import {TokenStorageService} from '../../service/token-storage.service';
 import {OrderDetailService} from '../../service/order-detail.service';
-import {OrderDetailDto} from '../../dto/order-detail-dto';
 
 @Component({
   selector: 'app-index',

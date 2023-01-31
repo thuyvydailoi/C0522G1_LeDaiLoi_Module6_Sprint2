@@ -12,15 +12,13 @@ public class BillType {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nameBill;
-    private boolean isDelete = false;
 
     public BillType() {
     }
 
-    public BillType(Integer id, String nameBill, boolean isDelete) {
+    public BillType(Integer id, String nameBill) {
         this.id = id;
         this.nameBill = nameBill;
-        this.isDelete = isDelete;
     }
 
     public Integer getId() {
@@ -37,13 +35,5 @@ public class BillType {
 
     public void setNameBill(String nameBill) {
         this.nameBill = nameBill;
-    }
-
-    public boolean isDelete() {
-        return isDelete;
-    }
-
-    public void setDelete(boolean delete) {
-        isDelete = delete;
     }
 }
